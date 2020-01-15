@@ -7,6 +7,7 @@
   "author": "Alexey Zakharenko <yogin.alex@gmail.com>",
   "license": "MIT",
   "private": false,
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "dependencies": {
     "css-loader": "^3.4.2",
     "extract-css-chunks-webpack-plugin": "^4.7.1",
