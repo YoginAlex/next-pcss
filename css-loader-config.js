@@ -42,7 +42,6 @@ module.exports = (
         chunkFilename: dev
           ? 'static/chunks/[name].chunk.css'
           : 'static/chunks/[name].[contenthash:8].chunk.css',
-        hot: dev
       })
     )
     extractCssInitialized = true
@@ -97,6 +96,14 @@ module.exports = (
     )
   }
 
+  const ExtractCssChunksLoader = {
+    loader: ExtractCssChunks.loader,
+    options: {
+      hot: true,
+      reloadAll: true
+    },
+  }
+
   // When not using css modules we don't transpile on the server
   if (isServer && !cssLoader.options.modules) {
     return ['ignore-loader']
@@ -108,7 +115,7 @@ module.exports = (
   }
 
   return [
-    !isServer && ExtractCssChunks.loader,
+    !isServer && ExtractCssChunksLoader,
     cssLoader,
     postcssLoader,
     ...loaders
