@@ -1,0 +1,21 @@
+{
+  "name": "next-pcss",
+  "version": "1.0.0",
+  "description": "next-css fork for testing *.pcss files",
+  "main": "index.js",
+  "repository": "https://github.com/YoginAlex/next-pcss.git",
+  "author": "Alexey Zakharenko <yogin.alex@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "css-loader": "^3.4.2",
+    "extract-css-chunks-webpack-plugin": "^4.7.1",
+    "find-up": "^4.1.0",
+    "ignore-loader": "^0.1.2",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.5"
+  }
+}
