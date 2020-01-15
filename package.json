@@ -1,6 +1,6 @@
 {
   "name": "next-pcss",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "next-css fork for testing *.pcss files",
   "main": "index.js",
   "repository": "https://github.com/YoginAlex/next-pcss.git",
