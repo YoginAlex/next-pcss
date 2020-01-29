@@ -10,7 +10,7 @@ module.exports = (nextConfig = {}) => {
       }
 
       const { dev, isServer } = options
-      const { cssModules, cssLoaderOptions, postcssLoaderOptions } = nextConfig
+      const { cssModules, cssLoaderOptions, postcssLoaderOptions, exclude } = nextConfig
 
       options.defaultLoaders.css = cssLoaderConfig(config, {
         extensions: ['css', 'pcss'],
@@ -21,7 +21,7 @@ module.exports = (nextConfig = {}) => {
         isServer
       })
 
-      config.module.rules.push({
+      const styleRule = {
         test: /\.(pcss|css)$/,
         issuer(issuer) {
           if (issuer.match(/pages[\\/]_document\.js$/)) {
@@ -32,7 +32,13 @@ module.exports = (nextConfig = {}) => {
           return true
         },
         use: options.defaultLoaders.css
-      })
+      };
+
+      if (exclude) {
+        styleRule.exclude = exclude;
+      }
+
+      config.module.rules.push(styleRule);
 
       if (typeof nextConfig.webpack === 'function') {
         return nextConfig.webpack(config, options)
